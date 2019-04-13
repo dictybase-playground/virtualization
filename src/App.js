@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { Switch, Route, Link } from "react-router-dom"
+import ReactWindow from "./ReactWindow"
+import MuiVirtualizedTable from "./MuiVirtualizedTable"
+import MuiVirtualized from "./MuiVirtualized"
+import "./App.css"
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <ul>
+      <li>
+        <Link to="/react-window">react-window</Link>
+      </li>
+      <li>
+        <Link to="/mui-virtualized-table">mui-virtualized-table</Link>
+      </li>
+      <li>
+        <Link to="/mui-virtualized">react-virtualized & material-ui</Link>
+      </li>
+    </ul>
+    <Switch>
+      <Route path="/react-window" component={ReactWindow} />
+      <Route path="/mui-virtualized-table" component={MuiVirtualizedTable} />
+      <Route path="/mui-virtualized" component={MuiVirtualized} />
+    </Switch>
+  </div>
+)
 
-export default App;
+export default App
